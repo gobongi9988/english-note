@@ -15,6 +15,7 @@
         date: s.date,
         label: s.label || '',
         kind: it.kind || '표현',
+        imp: Math.max(0, Math.min(3, Math.floor(Number(it.importance)) || 0)),
         en: it.en || '',
         ko: it.ko || '',
         nuance: it.nuance || '',
@@ -61,6 +62,7 @@
   var elBuilt = document.getElementById('built');
 
   var KIND_CLASS = { '표현': '', '단어': 'voca', '숙어': 'idiom', '문장': 'sent' };
+  var IMP_LABEL = { 1: '가끔 쓰는 표현', 2: '자주 쓰는 표현', 3: '핵심 표현' };
 
   function esc(s) {
     return String(s).replace(/[&<>"']/g, function (c) {
@@ -112,7 +114,12 @@
 
     h += '<button class="star' + (isStar(it.id) ? ' on' : '') + '" data-star="' + it.id + '" aria-pressed="' + (isStar(it.id) ? 'true' : 'false') + '" aria-label="중요 표시">' + (isStar(it.id) ? '★' : '☆') + '</button>';
 
-    h += '<div class="row1"><span class="badge ' + (KIND_CLASS[kind] || '') + '">' + esc(kind) + '</span><span class="meta">' + dateLabel(it.date) + '</span></div>';
+    h += '<div class="row1">';
+    if (it.imp) {
+      var impStars = new Array(it.imp + 1).join('★');
+      h += '<span class="imp i' + it.imp + '" role="img" aria-label="중요도 ' + it.imp + '단계 · ' + IMP_LABEL[it.imp] + '" title="중요도 ' + it.imp + '/3 · ' + IMP_LABEL[it.imp] + '">' + impStars + '</span>';
+    }
+    h += '<span class="badge ' + (KIND_CLASS[kind] || '') + '">' + esc(kind) + '</span><span class="meta">' + dateLabel(it.date) + '</span></div>';
     h += '<h2>' + hl(it.en) + '</h2>';
     h += '<p class="ko">' + hl(it.ko) + '</p>';
     if (it.nuance) h += '<p class="nuance">' + hl(it.nuance) + '</p>';

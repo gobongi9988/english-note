@@ -10,6 +10,7 @@
       "items": [
         {
           "kind": "표현",
+          "importance": 3,
           "en": "get slammed with work",
           "ko": "일이 폭탄처럼 쏟아지다",
           "nuance": "slam은 '쾅 때리다' — 일한테 얻어맞은 느낌이라 갑자기 일이 몰려와 정신없을 때 딱.",
@@ -26,6 +27,7 @@
         },
         {
           "kind": "단어",
+          "importance": 2,
           "en": "busywork",
           "ko": "시간만 잡아먹는 자잘한 잡일",
           "nuance": "일은 일인데 성과가 안 남는 잡무. busy + work를 붙여 한 단어로 만들었고, 못마땅한 투가 담겨 있어요.",
@@ -41,6 +43,7 @@
         },
         {
           "kind": "숙어",
+          "importance": 3,
           "en": "swing by / stop by",
           "ko": "(가는 길에) 잠깐 들르다",
           "nuance": "swing by는 '빙 돌아서 잠깐'이라 더 가볍고 구어적, stop by는 어디든 잠깐 들르는 기본형.",
@@ -56,6 +59,7 @@
         },
         {
           "kind": "표현",
+          "importance": 2,
           "en": "no way that's happening",
           "ko": "어림도 없어 / 도저히 무리야",
           "nuance": "상대가 기대하는 일을 정면으로 부정. 살짝 웃기면서도 단호한 구어체라 핑계 대기 좋아요.",
@@ -71,6 +75,7 @@
         },
         {
           "kind": "숙어",
+          "importance": 3,
           "en": "have my eye on ~",
           "ko": "~을 눈여겨보다 / 찜해 두다",
           "nuance": "사고 싶은 것, 마음에 둔 것을 은근히 계속 지켜보는 느낌. 쇼핑할 때 특히 자주 써요.",
@@ -86,6 +91,7 @@
         },
         {
           "kind": "숙어",
+          "importance": 3,
           "en": "try it on / swatch it",
           "ko": "(화장품·옷 등을) 발라보다 / 입어보다",
           "nuance": "try on은 옷·신발을 입어볼 때, swatch는 화장품을 손등에 발라 색을 확인할 때.",
@@ -101,6 +107,7 @@
         },
         {
           "kind": "숙어",
+          "importance": 2,
           "en": "look around",
           "ko": "(가게 안을) 둘러보다",
           "nuance": "특별히 뭘 사기보다 그냥 쭉 둘러보는 것. 점원에게 Just looking around. 하면 딱.",
@@ -116,6 +123,7 @@
         },
         {
           "kind": "표현",
+          "importance": 3,
           "en": "get ready for ~",
           "ko": "~할 준비를 하다",
           "nuance": "ready는 형용사라 '내가 ready한다'가 안 돼요. get/have + ready로 움직임을 붙여 줍니다.",
@@ -131,6 +139,7 @@
         },
         {
           "kind": "문장",
+          "importance": 3,
           "en": "Yes! I was originally going to swing by Olive Young on my way home, but no way that's happening.",
           "ko": "응! 원래 집 가는 길에 올리브영에 들르려고 했는데, 어림도 없어.",
           "nuance": "들르다 → swing by, 어림도 없어 → no way that's happening. but으로 두 문장을 자연스럽게 이었어요.",
@@ -138,6 +147,7 @@
         },
         {
           "kind": "문장",
+          "importance": 3,
           "en": "Hmm, I was just planning to look around. I've had my eye on a lipstick, so I wanted to try it on. Anyway, I'm going to get ready for dinner now!",
           "ko": "음, 그냥 좀 둘러보려고 했어. 눈여겨둔 립스틱이 있어서 발라보려고 했거든. 아무튼 이제 저녁 먹을 준비하려고!",
           "nuance": "눈여겨둔 → have my eye on, 발라보다 → try it on. 문장 사이는 so / Anyway로 이어 주면 훨씬 매끄러워요.",
@@ -145,6 +155,7 @@
         },
         {
           "kind": "문장",
+          "importance": 3,
           "en": "Today sucked. I got slammed with work.",
           "ko": "오늘 최악이야. 일복 터져서 일이 폭탄처럼 쏟아졌어.",
           "nuance": "Today sucked.로 툭 던지고 I got slammed with work.로 이유를 붙이면 원어민 말투 완성.",
@@ -152,6 +163,7 @@
         },
         {
           "kind": "문장",
+          "importance": 2,
           "en": "Not a project, just a bunch of busywork!",
           "ko": "큰 프로젝트는 아니고, 그냥 온갖 자잘한 잡일들이야!",
           "nuance": "Not a project, just ~ 구문으로 '그게 아니라 이거야'를 짧게 정리. just를 넣으면 가벼운 투가 살아요.",

@@ -143,6 +143,19 @@ a{color:var(--accent)}
 @media (hover:hover){.card:hover{border-color:var(--line2)}}
 
 .card .row1{display:flex;align-items:center;gap:6px;margin-bottom:7px}
+/* 중요도 별 (데이터 고정값) — 카드 왼쪽, 금색 알갱이. 오른쪽 ☆ 즐겨찾기 토글과 구분 */
+.card .imp{
+  flex:none;display:inline-flex;align-items:center;
+  font-size:10.5px;line-height:1;font-weight:700;
+  letter-spacing:.06em;
+  color:#FFD470;
+  padding:3px 5px 2.5px 4.5px;border-radius:6px;
+  background:linear-gradient(180deg,rgba(255,194,75,.20),rgba(255,194,75,.10));
+  box-shadow:inset 0 0 0 1px rgba(255,194,75,.22);
+  text-shadow:0 0 7px rgba(255,194,75,.30);
+  font-variant-numeric:tabular-nums;
+}
+.card .imp.i1{color:#E2CE9C;background:rgba(255,194,75,.09);box-shadow:inset 0 0 0 1px rgba(255,194,75,.14)}
 .badge{
   font-size:9.5px;font-weight:800;letter-spacing:.01em;line-height:1.5;
   padding:1px 6px;border-radius:5px;
@@ -255,7 +268,7 @@ mark{background:rgba(255,194,75,.22);color:#FFE0A3;border-radius:3px;padding:0 1
 
     <div class="tabs" id="tabs" role="tablist">
       <button type="button" data-tab="all" role="tab" aria-selected="true">전체 <span class="cnt">0</span></button>
-      <button type="button" data-tab="star" role="tab" aria-selected="false">⭐ 중요 <span class="cnt">0</span></button>
+      <button type="button" data-tab="star" role="tab" aria-selected="false">⭐ 즐겨찾기 <span class="cnt">0</span></button>
       <button type="button" data-tab="date" role="tab" aria-selected="false">날짜</button>
     </div>
 
@@ -276,7 +289,7 @@ mark{background:rgba(255,194,75,.22);color:#FFE0A3;border-radius:3px;padding:0 1
 
 </div>
 
-<script type="application/json" id="data">{"title":"영어 표현 수첩","subtitle":"매일 영어 대화에서 건진 표현·숙어·첨삭 문장","owner":"송혜리","updated":"2026-11-24","sessions":[{"date":"2026-11-24","label":"퇴근길 잡담 — 일 터진 날","items":[{"kind":"표현","en":"get slammed with work","ko":"일이 폭탄처럼 쏟아지다","nuance":"slam은 '쾅 때리다' — 일한테 얻어맞은 느낌이라 갑자기 일이 몰려와 정신없을 때 딱.","example":{"en":"Today sucked. I got slammed with work.","ko":"오늘 최악이야. 일복 터져서 일이 폭탄처럼 쏟아졌어."},"also":[{"en":"be buried in work","ko":"일더미에 파묻히다"},{"en":"Work was insane today.","ko":"오늘 일 진짜 미쳤어"},{"en":"Today sucked.","ko":"오늘 최악이었어"}],"note":"get + slammed(수동)라서 '일 때문에 얻어맞았다'는 구어체 느낌. 격식 있는 자리에서는 I was swamped with work.도 좋아요."},{"kind":"단어","en":"busywork","ko":"시간만 잡아먹는 자잘한 잡일","nuance":"일은 일인데 성과가 안 남는 잡무. busy + work를 붙여 한 단어로 만들었고, 못마땅한 투가 담겨 있어요.","example":{"en":"Not a project, just a bunch of busywork!","ko":"큰 프로젝트는 아니고, 그냥 온갖 자잘한 잡일들이야!"},"also":[{"en":"a bunch of random tasks","ko":"온갖 자잘한 일들"},{"en":"little things","ko":"사소한 자잘한 일들"}],"note":"셀 수 없는 명사예요. a busywork ✗ / a bunch of busywork ✓."},{"kind":"숙어","en":"swing by / stop by","ko":"(가는 길에) 잠깐 들르다","nuance":"swing by는 '빙 돌아서 잠깐'이라 더 가볍고 구어적, stop by는 어디든 잠깐 들르는 기본형.","example":{"en":"I was originally going to swing by Olive Young on my way home.","ko":"원래 집 가는 길에 올리브영에 들르려고 했어."},"also":[{"en":"on my way home","ko":"집에 가는 길에"},{"en":"drop by","ko":"잠깐 들르다"}],"note":"장소를 바로 붙여요 — swing by Olive Young. 목적어가 대명사면 swing by it처럼 뒤에."},{"kind":"표현","en":"no way that's happening","ko":"어림도 없어 / 도저히 무리야","nuance":"상대가 기대하는 일을 정면으로 부정. 살짝 웃기면서도 단호한 구어체라 핑계 대기 좋아요.","example":{"en":"I wanted to stop by Olive Young, but no way that's happening.","ko":"올리브영 들르려고 했는데 어림도 없어."},"also":[{"en":"not a chance","ko":"어림도 없어"},{"en":"No way!","ko":"말도 안 돼!"}],"note":"that's = that is. 진행형이라 '그런 일이 일어나는 중이 아니다' → 지금 상황에선 절대 불가능하다는 뉘앙스."},{"kind":"숙어","en":"have my eye on ~","ko":"~을 눈여겨보다 / 찜해 두다","nuance":"사고 싶은 것, 마음에 둔 것을 은근히 계속 지켜보는 느낌. 쇼핑할 때 특히 자주 써요.","example":{"en":"I've had my eye on a lipstick.","ko":"눈여겨둔 립스틱이 하나 있어."},"also":[{"en":"keep an eye on ~","ko":"~을 지켜보다 (관리·감시 느낌)"},{"en":"I've been eyeing ~","ko":"~을 계속 눈여겨보는 중"}],"note":"현재완료 have had를 써서 '예전부터 쭉 눈여겨둔 상태'를 살려요."},{"kind":"숙어","en":"try it on / swatch it","ko":"(화장품·옷 등을) 발라보다 / 입어보다","nuance":"try on은 옷·신발을 입어볼 때, swatch는 화장품을 손등에 발라 색을 확인할 때.","example":{"en":"I've had my eye on a lipstick, so I wanted to try it on.","ko":"눈여겨둔 립스틱이 있어서 발라보려고 했어."},"also":[{"en":"swatch it","ko":"(색을) 발라 보다"},{"en":"test it out","ko":"(제품을) 써 보다"}],"note":"대명사는 반드시 사이에 — try it on ✓ / try on it ✗."},{"kind":"숙어","en":"look around","ko":"(가게 안을) 둘러보다","nuance":"특별히 뭘 사기보다 그냥 쭉 둘러보는 것. 점원에게 Just looking around. 하면 딱.","example":{"en":"I was just planning to look around.","ko":"그냥 좀 둘러보려고 했어."},"also":[{"en":"browse","ko":"(상품을) 훑어보다"},{"en":"window-shopping","ko":"아이쇼핑"}],"note":"혜리 님이 직접 쓴 표현 그대로 맞았어요 ✓"},{"kind":"표현","en":"get ready for ~","ko":"~할 준비를 하다","nuance":"ready는 형용사라 '내가 ready한다'가 안 돼요. get/have + ready로 움직임을 붙여 줍니다.","example":{"en":"I'm going to get ready for dinner now.","ko":"이제 저녁 먹을 준비하려고."},"also":[{"en":"get dressed","ko":"옷 갈아입다"},{"en":"freshen up","ko":"씻고 단장하다"}],"note":"원문 i will ready for dinner → get을 넣어 I'm going to get ready for dinner. 로 고쳤어요."},{"kind":"문장","en":"Yes! I was originally going to swing by Olive Young on my way home, but no way that's happening.","ko":"응! 원래 집 가는 길에 올리브영에 들르려고 했는데, 어림도 없어.","nuance":"들르다 → swing by, 어림도 없어 → no way that's happening. but으로 두 문장을 자연스럽게 이었어요.","mine":"yes. originally 집가는길에 올리브영 들르려고했는데 어림도없어"},{"kind":"문장","en":"Hmm, I was just planning to look around. I've had my eye on a lipstick, so I wanted to try it on. Anyway, I'm going to get ready for dinner now!","ko":"음, 그냥 좀 둘러보려고 했어. 눈여겨둔 립스틱이 있어서 발라보려고 했거든. 아무튼 이제 저녁 먹을 준비하려고!","nuance":"눈여겨둔 → have my eye on, 발라보다 → try it on. 문장 사이는 so / Anyway로 이어 주면 훨씬 매끄러워요.","mine":"mm i was planning to look around. 눈여겨둔 립스틱이있는데 그거 발라보려고, i will ready for dinner"},{"kind":"문장","en":"Today sucked. I got slammed with work.","ko":"오늘 최악이야. 일복 터져서 일이 폭탄처럼 쏟아졌어.","nuance":"Today sucked.로 툭 던지고 I got slammed with work.로 이유를 붙이면 원어민 말투 완성.","mine":"sucks...개미친 일복터진 날이었어"},{"kind":"문장","en":"Not a project, just a bunch of busywork!","ko":"큰 프로젝트는 아니고, 그냥 온갖 자잘한 잡일들이야!","nuance":"Not a project, just ~ 구문으로 '그게 아니라 이거야'를 짧게 정리. just를 넣으면 가벼운 투가 살아요.","mine":"not a project. just 잡일들!"}]}]}</script>
+<script type="application/json" id="data">{"title":"영어 표현 수첩","subtitle":"매일 영어 대화에서 건진 표현·숙어·첨삭 문장","owner":"송혜리","updated":"2026-11-24","sessions":[{"date":"2026-11-24","label":"퇴근길 잡담 — 일 터진 날","items":[{"kind":"표현","importance":3,"en":"get slammed with work","ko":"일이 폭탄처럼 쏟아지다","nuance":"slam은 '쾅 때리다' — 일한테 얻어맞은 느낌이라 갑자기 일이 몰려와 정신없을 때 딱.","example":{"en":"Today sucked. I got slammed with work.","ko":"오늘 최악이야. 일복 터져서 일이 폭탄처럼 쏟아졌어."},"also":[{"en":"be buried in work","ko":"일더미에 파묻히다"},{"en":"Work was insane today.","ko":"오늘 일 진짜 미쳤어"},{"en":"Today sucked.","ko":"오늘 최악이었어"}],"note":"get + slammed(수동)라서 '일 때문에 얻어맞았다'는 구어체 느낌. 격식 있는 자리에서는 I was swamped with work.도 좋아요."},{"kind":"단어","importance":2,"en":"busywork","ko":"시간만 잡아먹는 자잘한 잡일","nuance":"일은 일인데 성과가 안 남는 잡무. busy + work를 붙여 한 단어로 만들었고, 못마땅한 투가 담겨 있어요.","example":{"en":"Not a project, just a bunch of busywork!","ko":"큰 프로젝트는 아니고, 그냥 온갖 자잘한 잡일들이야!"},"also":[{"en":"a bunch of random tasks","ko":"온갖 자잘한 일들"},{"en":"little things","ko":"사소한 자잘한 일들"}],"note":"셀 수 없는 명사예요. a busywork ✗ / a bunch of busywork ✓."},{"kind":"숙어","importance":3,"en":"swing by / stop by","ko":"(가는 길에) 잠깐 들르다","nuance":"swing by는 '빙 돌아서 잠깐'이라 더 가볍고 구어적, stop by는 어디든 잠깐 들르는 기본형.","example":{"en":"I was originally going to swing by Olive Young on my way home.","ko":"원래 집 가는 길에 올리브영에 들르려고 했어."},"also":[{"en":"on my way home","ko":"집에 가는 길에"},{"en":"drop by","ko":"잠깐 들르다"}],"note":"장소를 바로 붙여요 — swing by Olive Young. 목적어가 대명사면 swing by it처럼 뒤에."},{"kind":"표현","importance":2,"en":"no way that's happening","ko":"어림도 없어 / 도저히 무리야","nuance":"상대가 기대하는 일을 정면으로 부정. 살짝 웃기면서도 단호한 구어체라 핑계 대기 좋아요.","example":{"en":"I wanted to stop by Olive Young, but no way that's happening.","ko":"올리브영 들르려고 했는데 어림도 없어."},"also":[{"en":"not a chance","ko":"어림도 없어"},{"en":"No way!","ko":"말도 안 돼!"}],"note":"that's = that is. 진행형이라 '그런 일이 일어나는 중이 아니다' → 지금 상황에선 절대 불가능하다는 뉘앙스."},{"kind":"숙어","importance":3,"en":"have my eye on ~","ko":"~을 눈여겨보다 / 찜해 두다","nuance":"사고 싶은 것, 마음에 둔 것을 은근히 계속 지켜보는 느낌. 쇼핑할 때 특히 자주 써요.","example":{"en":"I've had my eye on a lipstick.","ko":"눈여겨둔 립스틱이 하나 있어."},"also":[{"en":"keep an eye on ~","ko":"~을 지켜보다 (관리·감시 느낌)"},{"en":"I've been eyeing ~","ko":"~을 계속 눈여겨보는 중"}],"note":"현재완료 have had를 써서 '예전부터 쭉 눈여겨둔 상태'를 살려요."},{"kind":"숙어","importance":3,"en":"try it on / swatch it","ko":"(화장품·옷 등을) 발라보다 / 입어보다","nuance":"try on은 옷·신발을 입어볼 때, swatch는 화장품을 손등에 발라 색을 확인할 때.","example":{"en":"I've had my eye on a lipstick, so I wanted to try it on.","ko":"눈여겨둔 립스틱이 있어서 발라보려고 했어."},"also":[{"en":"swatch it","ko":"(색을) 발라 보다"},{"en":"test it out","ko":"(제품을) 써 보다"}],"note":"대명사는 반드시 사이에 — try it on ✓ / try on it ✗."},{"kind":"숙어","importance":2,"en":"look around","ko":"(가게 안을) 둘러보다","nuance":"특별히 뭘 사기보다 그냥 쭉 둘러보는 것. 점원에게 Just looking around. 하면 딱.","example":{"en":"I was just planning to look around.","ko":"그냥 좀 둘러보려고 했어."},"also":[{"en":"browse","ko":"(상품을) 훑어보다"},{"en":"window-shopping","ko":"아이쇼핑"}],"note":"혜리 님이 직접 쓴 표현 그대로 맞았어요 ✓"},{"kind":"표현","importance":3,"en":"get ready for ~","ko":"~할 준비를 하다","nuance":"ready는 형용사라 '내가 ready한다'가 안 돼요. get/have + ready로 움직임을 붙여 줍니다.","example":{"en":"I'm going to get ready for dinner now.","ko":"이제 저녁 먹을 준비하려고."},"also":[{"en":"get dressed","ko":"옷 갈아입다"},{"en":"freshen up","ko":"씻고 단장하다"}],"note":"원문 i will ready for dinner → get을 넣어 I'm going to get ready for dinner. 로 고쳤어요."},{"kind":"문장","importance":3,"en":"Yes! I was originally going to swing by Olive Young on my way home, but no way that's happening.","ko":"응! 원래 집 가는 길에 올리브영에 들르려고 했는데, 어림도 없어.","nuance":"들르다 → swing by, 어림도 없어 → no way that's happening. but으로 두 문장을 자연스럽게 이었어요.","mine":"yes. originally 집가는길에 올리브영 들르려고했는데 어림도없어"},{"kind":"문장","importance":3,"en":"Hmm, I was just planning to look around. I've had my eye on a lipstick, so I wanted to try it on. Anyway, I'm going to get ready for dinner now!","ko":"음, 그냥 좀 둘러보려고 했어. 눈여겨둔 립스틱이 있어서 발라보려고 했거든. 아무튼 이제 저녁 먹을 준비하려고!","nuance":"눈여겨둔 → have my eye on, 발라보다 → try it on. 문장 사이는 so / Anyway로 이어 주면 훨씬 매끄러워요.","mine":"mm i was planning to look around. 눈여겨둔 립스틱이있는데 그거 발라보려고, i will ready for dinner"},{"kind":"문장","importance":3,"en":"Today sucked. I got slammed with work.","ko":"오늘 최악이야. 일복 터져서 일이 폭탄처럼 쏟아졌어.","nuance":"Today sucked.로 툭 던지고 I got slammed with work.로 이유를 붙이면 원어민 말투 완성.","mine":"sucks...개미친 일복터진 날이었어"},{"kind":"문장","importance":2,"en":"Not a project, just a bunch of busywork!","ko":"큰 프로젝트는 아니고, 그냥 온갖 자잘한 잡일들이야!","nuance":"Not a project, just ~ 구문으로 '그게 아니라 이거야'를 짧게 정리. just를 넣으면 가벼운 투가 살아요.","mine":"not a project. just 잡일들!"}]}]}</script>
 <script>
 /* 영어 표현 수첩 — 앱 로직 */
 (function () {
@@ -295,6 +308,7 @@ mark{background:rgba(255,194,75,.22);color:#FFE0A3;border-radius:3px;padding:0 1
         date: s.date,
         label: s.label || '',
         kind: it.kind || '표현',
+        imp: Math.max(0, Math.min(3, Math.floor(Number(it.importance)) || 0)),
         en: it.en || '',
         ko: it.ko || '',
         nuance: it.nuance || '',
@@ -341,6 +355,7 @@ mark{background:rgba(255,194,75,.22);color:#FFE0A3;border-radius:3px;padding:0 1
   var elBuilt = document.getElementById('built');
 
   var KIND_CLASS = { '표현': '', '단어': 'voca', '숙어': 'idiom', '문장': 'sent' };
+  var IMP_LABEL = { 1: '가끔 쓰는 표현', 2: '자주 쓰는 표현', 3: '핵심 표현' };
 
   function esc(s) {
     return String(s).replace(/[&<>"']/g, function (c) {
@@ -392,7 +407,12 @@ mark{background:rgba(255,194,75,.22);color:#FFE0A3;border-radius:3px;padding:0 1
 
     h += '<button class="star' + (isStar(it.id) ? ' on' : '') + '" data-star="' + it.id + '" aria-pressed="' + (isStar(it.id) ? 'true' : 'false') + '" aria-label="중요 표시">' + (isStar(it.id) ? '★' : '☆') + '</button>';
 
-    h += '<div class="row1"><span class="badge ' + (KIND_CLASS[kind] || '') + '">' + esc(kind) + '</span><span class="meta">' + dateLabel(it.date) + '</span></div>';
+    h += '<div class="row1">';
+    if (it.imp) {
+      var impStars = new Array(it.imp + 1).join('★');
+      h += '<span class="imp i' + it.imp + '" role="img" aria-label="중요도 ' + it.imp + '단계 · ' + IMP_LABEL[it.imp] + '" title="중요도 ' + it.imp + '/3 · ' + IMP_LABEL[it.imp] + '">' + impStars + '</span>';
+    }
+    h += '<span class="badge ' + (KIND_CLASS[kind] || '') + '">' + esc(kind) + '</span><span class="meta">' + dateLabel(it.date) + '</span></div>';
     h += '<h2>' + hl(it.en) + '</h2>';
     h += '<p class="ko">' + hl(it.ko) + '</p>';
     if (it.nuance) h += '<p class="nuance">' + hl(it.nuance) + '</p>';
