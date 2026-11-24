@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>__TITLE__</title>
+<meta name="description" content="__DESC__">
+<meta name="theme-color" content="#0A0B0D">
+<meta name="color-scheme" content="dark">
+<!-- 단일 파일이라도 항상 최신으로 뜨도록 재검증 -->
+<meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="__TITLE__">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="apple-touch-icon" href="icon-180.png">
+<link rel="icon" type="image/png" href="icon-192.png">
+<link rel="manifest" href="manifest.webmanifest">
+<style>
+__CSS__
+</style>
+</head>
+<body>
+<div class="app">
+
+  <header class="top">
+    <div class="brand">
+      <div class="logo">EN</div>
+      <div>
+        <h1>__TITLE__</h1>
+        <p class="sub">__SUBTITLE__</p>
+      </div>
+      <span class="built" id="built"></span>
+    </div>
+
+    <div class="search" id="searchWrap">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="16.5" y1="16.5" x2="21" y2="21"></line></svg>
+      <input id="q" type="search" placeholder="표현 · 뜻 · 예문 검색" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" aria-label="검색">
+      <button class="clear" id="clear" type="button" aria-label="검색어 지우기">✕</button>
+    </div>
+
+    <div class="tabs" id="tabs" role="tablist">
+      <button type="button" data-tab="all" role="tab" aria-selected="true">전체 <span class="cnt">0</span></button>
+      <button type="button" data-tab="star" role="tab" aria-selected="false">⭐ 중요 <span class="cnt">0</span></button>
+      <button type="button" data-tab="date" role="tab" aria-selected="false">날짜</button>
+    </div>
+
+    <div class="dates" id="dates"></div>
+  </header>
+
+  <main class="list" id="list"></main>
+
+  <div class="empty" id="empty">
+    <div class="em">📘</div>
+    <p id="emptyTxt"></p>
+  </div>
+
+  <footer class="foot">
+    <span>고봉이 수첩</span><span class="dot"></span><span id="footCount"></span>
+    <span class="r">업데이트 __UPDATED__</span>
+  </footer>
+
+</div>
+
+<script type="application/json" id="data">__DATA__</script>
+<script>
+__JS__
+</script>
+</body>
+</html>

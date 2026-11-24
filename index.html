@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>영어 표현 수첩</title>
+<meta name="description" content="매일 영어 대화에서 건진 표현·숙어·첨삭 문장">
+<meta name="theme-color" content="#0A0B0D">
+<meta name="color-scheme" content="dark">
+<!-- 단일 파일이라도 항상 최신으로 뜨도록 재검증 -->
+<meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="영어 표현 수첩">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="apple-touch-icon" href="icon-180.png">
+<link rel="icon" type="image/png" href="icon-192.png">
+<link rel="manifest" href="manifest.webmanifest">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+:root{
+  --bg:#0A0B0D; --surface:#14161A; --surface2:#1B1E24; --surface3:#22262E;
+  --line:#252932; --line2:#2F343E;
+  --ink:#F2F4F8; --ink2:#C5CAD4; --muted:#858C99; --faint:#5F6672;
+  --accent:#7DA2FF; --accent-soft:rgba(125,162,255,.13); --accent-line:rgba(125,162,255,.45);
+  --gold:#FFC24B; --green:#5BD6A2; --green-soft:rgba(91,214,162,.12);
+  --seg:#171A1F;
+}
+html{-webkit-text-size-adjust:100%}
+html,body{margin:0;padding:0}
+body{
+  background:var(--bg); color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR","Malgun Gothic",system-ui,sans-serif;
+  -webkit-font-smoothing:antialiased;
+  min-height:100vh; min-height:100dvh;
+  overscroll-behavior-y:none;
+}
+button{font:inherit;color:inherit;background:none;border:0}
+a{color:var(--accent)}
+
+.app{max-width:560px;margin:0 auto;padding-bottom:calc(30px + env(safe-area-inset-bottom))}
+
+/* ── 헤더 ─────────────────────────────── */
+.top{
+  position:sticky;top:0;z-index:20;
+  padding:calc(13px + env(safe-area-inset-top)) 16px 9px;
+  background:rgba(10,11,13,.86);
+  -webkit-backdrop-filter:saturate(180%) blur(18px);
+  backdrop-filter:saturate(180%) blur(18px);
+  border-bottom:1px solid rgba(37,41,50,.7);
+}
+.brand{display:flex;align-items:center;gap:10px;margin:0 2px 12px}
+.logo{
+  flex:none;width:28px;height:28px;border-radius:9px;
+  background:linear-gradient(150deg,#8FB0FF,#5A6DFF);
+  color:#fff;font-size:10.5px;font-weight:800;letter-spacing:.04em;
+  display:grid;place-items:center;
+  box-shadow:0 2px 10px rgba(90,109,255,.35);
+}
+.brand h1{font-size:16.5px;font-weight:800;letter-spacing:-.4px;margin:0;line-height:1.15}
+.brand .sub{font-size:10.5px;color:var(--faint);margin:2px 0 0;letter-spacing:-.1px}
+.brand .built{margin-left:auto;font-size:9.5px;font-weight:700;color:var(--faint);
+  letter-spacing:.02em;white-space:nowrap;font-variant-numeric:tabular-nums;
+  border:1px solid var(--line);border-radius:6px;padding:3px 6px}
+
+/* ── 검색 ─────────────────────────────── */
+.search{position:relative;display:flex;align-items:center;margin:0 0 9px}
+.search svg{position:absolute;left:11px;width:15px;height:15px;stroke:var(--faint);fill:none;
+  stroke-width:2;stroke-linecap:round;pointer-events:none}
+.search input{
+  width:100%;appearance:none;border:1px solid var(--line);background:var(--surface);
+  color:var(--ink);border-radius:11px;
+  padding:10px 34px 10px 33px;font-size:14px;letter-spacing:-.2px;
+  font-family:inherit;
+}
+.search input::placeholder{color:var(--faint)}
+.search input:focus{outline:none;border-color:var(--line2);background:var(--surface2)}
+.search input::-webkit-search-cancel-button{display:none}
+.search .clear{
+  position:absolute;right:6px;width:26px;height:26px;border-radius:50%;
+  display:none;place-items:center;color:var(--muted);font-size:15px;line-height:1;cursor:pointer;
+  -webkit-tap-highlight-color:transparent;
+}
+.search.has .clear{display:grid}
+.search .clear:active{background:var(--surface3)}
+
+/* ── 탭 ───────────────────────────────── */
+.tabs{display:flex;gap:3px;background:var(--seg);border-radius:12px;padding:3px}
+.tabs button{
+  flex:1 1 0;min-width:0;font-size:12px;font-weight:700;color:var(--muted);
+  letter-spacing:-.3px;padding:8px 2px;border-radius:9px;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;gap:4px;white-space:nowrap;
+  transition:background .16s ease,color .16s ease;
+  -webkit-tap-highlight-color:transparent;
+}
+.tabs button .cnt{font-size:10px;font-weight:800;color:var(--faint);font-variant-numeric:tabular-nums}
+.tabs button[aria-selected="true"]{background:var(--surface3);color:var(--ink);box-shadow:0 1px 2px rgba(0,0,0,.4)}
+.tabs button[aria-selected="true"] .cnt{color:var(--accent)}
+
+/* ── 요약 / 날짜 스트립 ──────────────── */
+.dates{
+  display:none;gap:6px;overflow-x:auto;padding:9px 1px 1px;
+  -webkit-overflow-scrolling:touch;scrollbar-width:none;
+}
+.dates::-webkit-scrollbar{display:none}
+.dates.on{display:flex}
+.dates button{
+  flex:none;font-size:11.5px;font-weight:700;color:var(--ink2);
+  border:1px solid var(--line);background:var(--surface);border-radius:8px;
+  padding:5px 9px;cursor:pointer;-webkit-tap-highlight-color:transparent;
+  font-variant-numeric:tabular-nums;letter-spacing:-.1px;
+}
+.dates button[aria-pressed="true"]{background:var(--accent-soft);border-color:var(--accent-line);color:var(--accent)}
+
+/* ── 목록 ─────────────────────────────── */
+.list{padding:12px 12px 0}
+.dayhead{
+  display:flex;align-items:baseline;gap:7px;
+  padding:14px 4px 8px;
+}
+.dayhead:first-child{padding-top:4px}
+.dayhead .d{font-size:12.5px;font-weight:800;letter-spacing:-.2px;color:var(--ink2);
+  font-variant-numeric:tabular-nums}
+.dayhead .l{font-size:11px;color:var(--faint);letter-spacing:-.15px;overflow:hidden;
+  text-overflow:ellipsis;white-space:nowrap}
+.dayhead .n{margin-left:auto;font-size:10.5px;font-weight:700;color:var(--faint);
+  font-variant-numeric:tabular-nums;flex:none}
+
+.card{
+  position:relative;background:var(--surface);
+  border:1px solid var(--line);border-radius:14px;
+  padding:13px 42px 13px 14px;margin-bottom:9px;
+  cursor:pointer;-webkit-tap-highlight-color:transparent;
+  transition:border-color .16s ease,background .16s ease;
+}
+.card + .card{margin-top:0}
+.card:active{background:var(--surface2)}
+.card.open{border-color:var(--line2);background:var(--surface2)}
+.card.sent{border-left:2px solid var(--green);border-radius:14px}
+@media (hover:hover){.card:hover{border-color:var(--line2)}}
+
+.card .row1{display:flex;align-items:center;gap:6px;margin-bottom:7px}
+.badge{
+  font-size:9.5px;font-weight:800;letter-spacing:.01em;line-height:1.5;
+  padding:1px 6px;border-radius:5px;
+  background:var(--accent-soft);color:var(--accent);
+}
+.badge.voca{background:rgba(255,194,75,.12);color:var(--gold)}
+.badge.idiom{background:rgba(190,148,255,.13);color:#C6A2FF}
+.badge.sent{background:var(--green-soft);color:var(--green)}
+.card .meta{margin-left:auto;font-size:9.5px;color:var(--faint);font-variant-numeric:tabular-nums;
+  letter-spacing:.02em}
+.card .chev{display:none}
+
+.card h2{
+  margin:0;font-size:18px;line-height:1.32;font-weight:750;letter-spacing:-.35px;
+  color:var(--ink);word-break:break-word;
+}
+.card.sent h2{font-size:15.5px;line-height:1.45;font-weight:650;letter-spacing:-.15px;color:#E8ECF3}
+.card .ko{margin:4px 0 0;font-size:13.5px;line-height:1.4;font-weight:600;color:var(--accent);letter-spacing:-.25px}
+.card.sent .ko{color:var(--ink2);font-weight:500}
+.card .nuance{margin:6px 0 0;font-size:12px;line-height:1.5;color:var(--muted);letter-spacing:-.15px}
+
+.ex{
+  margin:10px 0 0;padding:9px 10px 9px 11px;
+  background:#101216;border-left:2px solid var(--line2);border-radius:0 9px 9px 0;
+}
+.card.open .ex{border-left-color:var(--accent-line);background:#11141A}
+.ex p{margin:0}
+.ex .en{font-size:13.5px;line-height:1.5;font-weight:600;color:#DDE3ED;letter-spacing:-.15px}
+.ex .tr{font-size:11.5px;line-height:1.45;color:var(--muted);margin-top:3px;letter-spacing:-.1px}
+.card.sent .ex{background:transparent;border-left:0;padding:0;margin-top:9px}
+.card.sent .ex .en{display:none}
+
+.also{margin:9px 0 0;display:flex;flex-wrap:wrap;gap:4px;align-items:center}
+.also .lb{font-size:9.5px;font-weight:700;color:var(--faint);letter-spacing:.01em;margin-right:2px}
+.chip{
+  font-size:11px;line-height:1.4;color:var(--ink2);
+  background:var(--surface2);border:1px solid var(--line);border-radius:6px;
+  padding:2px 6px;letter-spacing:-.15px;
+}
+.card.open .chip{background:var(--surface3)}
+.chip b{font-weight:700;color:#E4E9F2}
+.chip span{color:var(--faint)}
+
+.more{display:none;margin-top:10px;padding-top:10px;border-top:1px dashed var(--line2)}
+.card.open .more{display:block}
+.more p{margin:0;font-size:11.5px;line-height:1.55;color:var(--ink2);letter-spacing:-.12px}
+.more p + p{margin-top:7px}
+.more .k{display:block;font-size:9.5px;font-weight:800;letter-spacing:.02em;color:var(--faint);margin-bottom:2px}
+.more .mine{color:var(--muted);font-style:italic}
+.more .mine b{font-style:normal;color:var(--ink2);font-weight:600}
+
+.star{
+  position:absolute;top:5px;right:5px;width:36px;height:36px;padding:0;
+  display:grid;place-items:center;border-radius:10px;cursor:pointer;
+  font-size:16px;line-height:1;color:#3E4450;
+  transition:color .15s ease,transform .12s ease;
+  -webkit-tap-highlight-color:transparent;
+}
+.star:active{transform:scale(.85)}
+.star.on{color:var(--gold)}
+@media (hover:hover){.star:hover{color:#8C7A4A}.star.on:hover{color:var(--gold)}}
+
+/* 검색어 하이라이트 */
+mark{background:rgba(255,194,75,.22);color:#FFE0A3;border-radius:3px;padding:0 1px}
+
+/* ── 빈 상태 / 푸터 ───────────────────── */
+.empty{display:none;padding:52px 26px;text-align:center;color:var(--muted)}
+.empty.on{display:block}
+.empty .em{font-size:26px;line-height:1;margin-bottom:10px}
+.empty p{margin:0;font-size:12.5px;line-height:1.6;letter-spacing:-.2px}
+.empty b{color:var(--ink2)}
+
+.foot{
+  margin:22px 16px 0;padding-top:14px;border-top:1px solid var(--line);
+  display:flex;align-items:center;gap:6px;
+  font-size:10.5px;color:var(--faint);letter-spacing:-.1px;
+}
+.foot .dot{width:3px;height:3px;border-radius:2px;background:var(--faint)}
+.foot .r{margin-left:auto;font-variant-numeric:tabular-nums}
+
+@media (max-width:360px){
+  .card h2{font-size:17px}
+  .card.sent h2{font-size:14.5px}
+  .tabs button{font-size:11px;gap:2px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{transition-duration:.01ms !important}
+}
+
+</style>
+</head>
+<body>
+<div class="app">
+
+  <header class="top">
+    <div class="brand">
+      <div class="logo">EN</div>
+      <div>
+        <h1>영어 표현 수첩</h1>
+        <p class="sub">매일 영어 대화에서 건진 표현·숙어·첨삭 문장</p>
+      </div>
+      <span class="built" id="built"></span>
+    </div>
+
+    <div class="search" id="searchWrap">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="16.5" y1="16.5" x2="21" y2="21"></line></svg>
+      <input id="q" type="search" placeholder="표현 · 뜻 · 예문 검색" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" aria-label="검색">
+      <button class="clear" id="clear" type="button" aria-label="검색어 지우기">✕</button>
+    </div>
+
+    <div class="tabs" id="tabs" role="tablist">
+      <button type="button" data-tab="all" role="tab" aria-selected="true">전체 <span class="cnt">0</span></button>
+      <button type="button" data-tab="star" role="tab" aria-selected="false">⭐ 중요 <span class="cnt">0</span></button>
+      <button type="button" data-tab="date" role="tab" aria-selected="false">날짜</button>
+    </div>
+
+    <div class="dates" id="dates"></div>
+  </header>
+
+  <main class="list" id="list"></main>
+
+  <div class="empty" id="empty">
+    <div class="em">📘</div>
+    <p id="emptyTxt"></p>
+  </div>
+
+  <footer class="foot">
+    <span>고봉이 수첩</span><span class="dot"></span><span id="footCount"></span>
+    <span class="r">업데이트 2026.11.24</span>
+  </footer>
+
+</div>
+
+<script type="application/json" id="data">{"title":"영어 표현 수첩","subtitle":"매일 영어 대화에서 건진 표현·숙어·첨삭 문장","owner":"송혜리","updated":"2026-11-24","sessions":[{"date":"2026-11-24","label":"퇴근길 잡담 — 일 터진 날","items":[{"kind":"표현","en":"get slammed with work","ko":"일이 폭탄처럼 쏟아지다","nuance":"slam은 '쾅 때리다' — 일한테 얻어맞은 느낌이라 갑자기 일이 몰려와 정신없을 때 딱.","example":{"en":"Today sucked. I got slammed with work.","ko":"오늘 최악이야. 일복 터져서 일이 폭탄처럼 쏟아졌어."},"also":[{"en":"be buried in work","ko":"일더미에 파묻히다"},{"en":"Work was insane today.","ko":"오늘 일 진짜 미쳤어"},{"en":"Today sucked.","ko":"오늘 최악이었어"}],"note":"get + slammed(수동)라서 '일 때문에 얻어맞았다'는 구어체 느낌. 격식 있는 자리에서는 I was swamped with work.도 좋아요."},{"kind":"단어","en":"busywork","ko":"시간만 잡아먹는 자잘한 잡일","nuance":"일은 일인데 성과가 안 남는 잡무. busy + work를 붙여 한 단어로 만들었고, 못마땅한 투가 담겨 있어요.","example":{"en":"Not a project, just a bunch of busywork!","ko":"큰 프로젝트는 아니고, 그냥 온갖 자잘한 잡일들이야!"},"also":[{"en":"a bunch of random tasks","ko":"온갖 자잘한 일들"},{"en":"little things","ko":"사소한 자잘한 일들"}],"note":"셀 수 없는 명사예요. a busywork ✗ / a bunch of busywork ✓."},{"kind":"숙어","en":"swing by / stop by","ko":"(가는 길에) 잠깐 들르다","nuance":"swing by는 '빙 돌아서 잠깐'이라 더 가볍고 구어적, stop by는 어디든 잠깐 들르는 기본형.","example":{"en":"I was originally going to swing by Olive Young on my way home.","ko":"원래 집 가는 길에 올리브영에 들르려고 했어."},"also":[{"en":"on my way home","ko":"집에 가는 길에"},{"en":"drop by","ko":"잠깐 들르다"}],"note":"장소를 바로 붙여요 — swing by Olive Young. 목적어가 대명사면 swing by it처럼 뒤에."},{"kind":"표현","en":"no way that's happening","ko":"어림도 없어 / 도저히 무리야","nuance":"상대가 기대하는 일을 정면으로 부정. 살짝 웃기면서도 단호한 구어체라 핑계 대기 좋아요.","example":{"en":"I wanted to stop by Olive Young, but no way that's happening.","ko":"올리브영 들르려고 했는데 어림도 없어."},"also":[{"en":"not a chance","ko":"어림도 없어"},{"en":"No way!","ko":"말도 안 돼!"}],"note":"that's = that is. 진행형이라 '그런 일이 일어나는 중이 아니다' → 지금 상황에선 절대 불가능하다는 뉘앙스."},{"kind":"숙어","en":"have my eye on ~","ko":"~을 눈여겨보다 / 찜해 두다","nuance":"사고 싶은 것, 마음에 둔 것을 은근히 계속 지켜보는 느낌. 쇼핑할 때 특히 자주 써요.","example":{"en":"I've had my eye on a lipstick.","ko":"눈여겨둔 립스틱이 하나 있어."},"also":[{"en":"keep an eye on ~","ko":"~을 지켜보다 (관리·감시 느낌)"},{"en":"I've been eyeing ~","ko":"~을 계속 눈여겨보는 중"}],"note":"현재완료 have had를 써서 '예전부터 쭉 눈여겨둔 상태'를 살려요."},{"kind":"숙어","en":"try it on / swatch it","ko":"(화장품·옷 등을) 발라보다 / 입어보다","nuance":"try on은 옷·신발을 입어볼 때, swatch는 화장품을 손등에 발라 색을 확인할 때.","example":{"en":"I've had my eye on a lipstick, so I wanted to try it on.","ko":"눈여겨둔 립스틱이 있어서 발라보려고 했어."},"also":[{"en":"swatch it","ko":"(색을) 발라 보다"},{"en":"test it out","ko":"(제품을) 써 보다"}],"note":"대명사는 반드시 사이에 — try it on ✓ / try on it ✗."},{"kind":"숙어","en":"look around","ko":"(가게 안을) 둘러보다","nuance":"특별히 뭘 사기보다 그냥 쭉 둘러보는 것. 점원에게 Just looking around. 하면 딱.","example":{"en":"I was just planning to look around.","ko":"그냥 좀 둘러보려고 했어."},"also":[{"en":"browse","ko":"(상품을) 훑어보다"},{"en":"window-shopping","ko":"아이쇼핑"}],"note":"혜리 님이 직접 쓴 표현 그대로 맞았어요 ✓"},{"kind":"표현","en":"get ready for ~","ko":"~할 준비를 하다","nuance":"ready는 형용사라 '내가 ready한다'가 안 돼요. get/have + ready로 움직임을 붙여 줍니다.","example":{"en":"I'm going to get ready for dinner now.","ko":"이제 저녁 먹을 준비하려고."},"also":[{"en":"get dressed","ko":"옷 갈아입다"},{"en":"freshen up","ko":"씻고 단장하다"}],"note":"원문 i will ready for dinner → get을 넣어 I'm going to get ready for dinner. 로 고쳤어요."},{"kind":"문장","en":"Yes! I was originally going to swing by Olive Young on my way home, but no way that's happening.","ko":"응! 원래 집 가는 길에 올리브영에 들르려고 했는데, 어림도 없어.","nuance":"들르다 → swing by, 어림도 없어 → no way that's happening. but으로 두 문장을 자연스럽게 이었어요.","mine":"yes. originally 집가는길에 올리브영 들르려고했는데 어림도없어"},{"kind":"문장","en":"Hmm, I was just planning to look around. I've had my eye on a lipstick, so I wanted to try it on. Anyway, I'm going to get ready for dinner now!","ko":"음, 그냥 좀 둘러보려고 했어. 눈여겨둔 립스틱이 있어서 발라보려고 했거든. 아무튼 이제 저녁 먹을 준비하려고!","nuance":"눈여겨둔 → have my eye on, 발라보다 → try it on. 문장 사이는 so / Anyway로 이어 주면 훨씬 매끄러워요.","mine":"mm i was planning to look around. 눈여겨둔 립스틱이있는데 그거 발라보려고, i will ready for dinner"},{"kind":"문장","en":"Today sucked. I got slammed with work.","ko":"오늘 최악이야. 일복 터져서 일이 폭탄처럼 쏟아졌어.","nuance":"Today sucked.로 툭 던지고 I got slammed with work.로 이유를 붙이면 원어민 말투 완성.","mine":"sucks...개미친 일복터진 날이었어"},{"kind":"문장","en":"Not a project, just a bunch of busywork!","ko":"큰 프로젝트는 아니고, 그냥 온갖 자잘한 잡일들이야!","nuance":"Not a project, just ~ 구문으로 '그게 아니라 이거야'를 짧게 정리. just를 넣으면 가벼운 투가 살아요.","mine":"not a project. just 잡일들!"}]}]}</script>
+<script>
+/* 영어 표현 수첩 — 앱 로직 */
+(function () {
+  'use strict';
+
+  var DATA = JSON.parse(document.getElementById('data').textContent);
+  var STORE_KEY = 'engnote:stars:v1';
+  var WEEK = ['일', '월', '화', '수', '목', '금', '토'];
+
+  /* ── 데이터 준비 ─────────────────────── */
+  var ITEMS = [];
+  DATA.sessions.forEach(function (s) {
+    s.items.forEach(function (it, i) {
+      ITEMS.push({
+        id: s.date + '-' + String(i + 1).padStart(2, '0'),
+        date: s.date,
+        label: s.label || '',
+        kind: it.kind || '표현',
+        en: it.en || '',
+        ko: it.ko || '',
+        nuance: it.nuance || '',
+        exEn: (it.example && it.example.en) || '',
+        exKo: (it.example && it.example.ko) || '',
+        also: it.also || [],
+        note: it.note || '',
+        mine: it.mine || ''
+      });
+    });
+  });
+  ITEMS.sort(function (a, b) {
+    if (a.date !== b.date) return a.date < b.date ? 1 : -1;
+    return a.id < b.id ? -1 : 1;
+  });
+
+  var SESSION_LABEL = {};
+  DATA.sessions.forEach(function (s) { SESSION_LABEL[s.date] = s.label || ''; });
+
+  function loadStars() {
+    try {
+      var raw = localStorage.getItem(STORE_KEY);
+      var arr = raw ? JSON.parse(raw) : [];
+      return Array.isArray(arr) ? arr : [];
+    } catch (e) { return []; }
+  }
+  function saveStars() {
+    try { localStorage.setItem(STORE_KEY, JSON.stringify(stars)); } catch (e) {}
+  }
+
+  var stars = loadStars();
+  var state = { tab: 'all', q: '', date: 'all', open: {} };
+
+  /* ── DOM ─────────────────────────────── */
+  var elList = document.getElementById('list');
+  var elEmpty = document.getElementById('empty');
+  var elEmptyTxt = document.getElementById('emptyTxt');
+  var elTabs = document.getElementById('tabs');
+  var elDates = document.getElementById('dates');
+  var elSearch = document.getElementById('searchWrap');
+  var elQ = document.getElementById('q');
+  var elClear = document.getElementById('clear');
+  var elFootCount = document.getElementById('footCount');
+  var elBuilt = document.getElementById('built');
+
+  var KIND_CLASS = { '표현': '', '단어': 'voca', '숙어': 'idiom', '문장': 'sent' };
+
+  function esc(s) {
+    return String(s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+  function escRe(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+
+  function hl(text) {
+    var safe = esc(text);
+    if (!state.q) return safe;
+    var re = new RegExp('(' + escRe(esc(state.q)) + ')', 'ig');
+    return safe.replace(re, '<mark>$1</mark>');
+  }
+
+  function isStar(id) { return stars.indexOf(id) !== -1; }
+
+  function dateLabel(d) {
+    var p = d.split('-');
+    var dt = new Date(+p[0], +p[1] - 1, +p[2]);
+    var today = new Date();
+    var sameYear = today.getFullYear() === +p[0];
+    var head = sameYear ? (+p[1] + '.' + p[2]) : (p[0] + '.' + p[1] + '.' + p[2]);
+    return head + ' (' + WEEK[dt.getDay()] + ')';
+  }
+
+  function hits(it) {
+    var q = state.q.trim().toLowerCase();
+    if (!q) return true;
+    var hay = [it.en, it.ko, it.nuance, it.exEn, it.exKo, it.note].join(' ');
+    it.also.forEach(function (a) { hay += ' ' + a.en + ' ' + a.ko; });
+    return hay.toLowerCase().indexOf(q) !== -1;
+  }
+
+  function visible() {
+    return ITEMS.filter(function (it) {
+      if (state.tab === 'star' && !isStar(it.id)) return false;
+      if (state.tab === 'date' && state.date !== 'all' && it.date !== state.date) return false;
+      return hits(it);
+    });
+  }
+
+  /* ── 카드 ─────────────────────────────── */
+  function card(it) {
+    var kind = it.kind;
+    var isSent = kind === '문장';
+    var cls = 'card' + (isSent ? ' sent' : '') + (state.open[it.id] ? ' open' : '');
+    var h = '<article class="' + cls + '" data-id="' + it.id + '" role="button" tabindex="0" aria-expanded="' + (state.open[it.id] ? 'true' : 'false') + '">';
+
+    h += '<button class="star' + (isStar(it.id) ? ' on' : '') + '" data-star="' + it.id + '" aria-pressed="' + (isStar(it.id) ? 'true' : 'false') + '" aria-label="중요 표시">' + (isStar(it.id) ? '★' : '☆') + '</button>';
+
+    h += '<div class="row1"><span class="badge ' + (KIND_CLASS[kind] || '') + '">' + esc(kind) + '</span><span class="meta">' + dateLabel(it.date) + '</span></div>';
+    h += '<h2>' + hl(it.en) + '</h2>';
+    h += '<p class="ko">' + hl(it.ko) + '</p>';
+    if (it.nuance) h += '<p class="nuance">' + hl(it.nuance) + '</p>';
+
+    if (it.exEn || it.exKo) {
+      h += '<div class="ex">';
+      if (it.exEn) h += '<p class="en">' + hl(it.exEn) + '</p>';
+      if (it.exKo) h += '<p class="tr">' + hl(it.exKo) + '</p>';
+      h += '</div>';
+    }
+
+    if (it.also.length) {
+      h += '<div class="also"><span class="lb">함께 쓰는</span>';
+      it.also.forEach(function (a) {
+        h += '<span class="chip"><b>' + hl(a.en) + '</b>';
+        if (a.ko) h += ' <span>·</span> ' + hl(a.ko);
+        h += '</span>';
+      });
+      h += '</div>';
+    }
+
+    if (it.note || it.mine) {
+      h += '<div class="more">';
+      if (it.note) h += '<p><span class="k">메모</span>' + hl(it.note) + '</p>';
+      if (it.mine) h += '<p><span class="k">내가 쓴 문장 → 첨삭</span><span class="mine">' + hl(it.mine) + '</span></p>';
+      h += '</div>';
+    }
+
+    h += '</article>';
+    return h;
+  }
+
+  /* ── 렌더 ─────────────────────────────── */
+  function render() {
+    var list = visible();
+    var out = '';
+
+    if (!list.length) {
+      elList.innerHTML = '';
+      elEmpty.classList.add('on');
+      if (state.q.trim()) {
+        elEmptyTxt.innerHTML = '<b>' + esc(state.q.trim()) + '</b> 검색 결과가 없어요.<br>다른 표현으로 찾아보세요.';
+      } else if (state.tab === 'star') {
+        elEmptyTxt.innerHTML = '아직 중요 표시한 표현이 없어요.<br>카드 오른쪽 <b>☆</b>를 눌러 모아 두세요.';
+      } else {
+        elEmptyTxt.innerHTML = '아직 담긴 표현이 없어요.';
+      }
+    } else {
+      elEmpty.classList.remove('on');
+      if (state.tab === 'date') {
+        var last = null;
+        list.forEach(function (it) {
+          if (it.date !== last) {
+            var n = list.filter(function (x) { return x.date === it.date; }).length;
+            out += '<div class="dayhead"><span class="d">' + dateLabel(it.date) + '</span>' +
+                   '<span class="l">' + esc(SESSION_LABEL[it.date] || '') + '</span>' +
+                   '<span class="n">' + n + '개</span></div>';
+            last = it.date;
+          }
+          out += card(it);
+        });
+      } else {
+        list.forEach(function (it) { out += card(it); });
+      }
+      elList.innerHTML = out;
+    }
+
+    updateCounts();
+
+    // 날짜 스트립
+    var dates = [];
+    ITEMS.forEach(function (it) { if (dates.indexOf(it.date) === -1) dates.push(it.date); });
+    if (state.tab === 'date' && dates.length > 1) {
+      elDates.classList.add('on');
+      var dh = '<button data-date="all" aria-pressed="' + (state.date === 'all') + '">전체</button>';
+      dates.forEach(function (d) {
+        dh += '<button data-date="' + d + '" aria-pressed="' + (state.date === d) + '">' + dateLabel(d) + '</button>';
+      });
+      elDates.innerHTML = dh;
+    } else {
+      elDates.classList.remove('on');
+      elDates.innerHTML = '';
+    }
+
+    // 검색창 상태
+    elSearch.classList.toggle('has', !!state.q);
+
+    // 푸터
+    var exprs = ITEMS.filter(function (i) { return i.kind !== '문장'; }).length;
+    var sents = ITEMS.filter(function (i) { return i.kind === '문장'; }).length;
+    elFootCount.textContent = '표현 ' + exprs + ' · 문장 ' + sents;
+    elBuilt.textContent = (DATA.updated || '').replace(/-/g, '.');
+  }
+
+  function updateCounts() {
+    var cAll = elTabs.querySelector('[data-tab="all"] .cnt');
+    var cStar = elTabs.querySelector('[data-tab="star"] .cnt');
+    if (cAll) cAll.textContent = ITEMS.length;
+    if (cStar) cStar.textContent = stars.length;
+  }
+
+  function setTab(tab) {
+    state.tab = tab;
+    if (tab !== 'date') state.date = 'all';
+    Array.prototype.forEach.call(elTabs.querySelectorAll('button'), function (b) {
+      b.setAttribute('aria-selected', b.dataset.tab === tab ? 'true' : 'false');
+    });
+    render();
+  }
+
+  /* ── 이벤트 ───────────────────────────── */
+  elTabs.addEventListener('click', function (e) {
+    var b = e.target.closest('button[data-tab]');
+    if (b) setTab(b.dataset.tab);
+  });
+
+  elDates.addEventListener('click', function (e) {
+    var b = e.target.closest('button[data-date]');
+    if (!b) return;
+    state.date = b.dataset.date;
+    render();
+  });
+
+  elList.addEventListener('click', function (e) {
+    var st = e.target.closest('[data-star]');
+    if (st) {
+      e.preventDefault();
+      e.stopPropagation();
+      var id = st.dataset.star;
+      var i = stars.indexOf(id);
+      if (i === -1) stars.push(id); else stars.splice(i, 1);
+      saveStars();
+      var on = i === -1;
+      st.classList.toggle('on', on);
+      st.setAttribute('aria-pressed', on ? 'true' : 'false');
+      st.textContent = on ? '★' : '☆';
+      updateCounts();
+      if (state.tab === 'star') render();
+      return;
+    }
+    var c = e.target.closest('.card');
+    if (!c) return;
+    toggleCard(c);
+  });
+
+  function toggleCard(c) {
+    var cid = c.dataset.id;
+    if (state.open[cid]) delete state.open[cid]; else state.open[cid] = true;
+    var open = !!state.open[cid];
+    c.classList.toggle('open', open);
+    c.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+
+  elList.addEventListener('keydown', function (e) {
+    if (e.key !== 'Enter' && e.key !== ' ') return;
+    var c = e.target.closest('.card');
+    if (!c) return;
+    e.preventDefault();
+    toggleCard(c);
+  });
+
+  var t = null;
+  elQ.addEventListener('input', function () {
+    clearTimeout(t);
+    var v = elQ.value;
+    t = setTimeout(function () { state.q = v; render(); }, 90);
+  });
+  elQ.addEventListener('search', function () { state.q = elQ.value; render(); });
+
+  elClear.addEventListener('click', function () {
+    elQ.value = '';
+    state.q = '';
+    render();
+    elQ.focus();
+  });
+
+  setTab('all');
+})();
+
+</script>
+</body>
+</html>
